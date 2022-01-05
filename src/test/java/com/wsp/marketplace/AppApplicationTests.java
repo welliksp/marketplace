@@ -1,4 +1,4 @@
-package com.wsp.cursomc;
+package com.wsp.marketplace;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

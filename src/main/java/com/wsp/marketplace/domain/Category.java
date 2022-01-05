@@ -1,4 +1,4 @@
-package com.wsp.cursomc.domain;
+package com.wsp.marketplace.domain;
 
 import java.io.Serializable;
 

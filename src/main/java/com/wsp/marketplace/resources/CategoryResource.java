@@ -1,6 +1,6 @@
-package com.wsp.cursomc.resources;
+package com.wsp.marketplace.resources;
 
-import com.wsp.cursomc.domain.Category;
+import com.wsp.marketplace.domain.Category;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
