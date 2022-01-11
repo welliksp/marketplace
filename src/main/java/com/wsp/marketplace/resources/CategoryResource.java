@@ -1,9 +1,10 @@
 package com.wsp.marketplace.resources;
 
 import com.wsp.marketplace.domain.Category;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.wsp.marketplace.services.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,22 +13,21 @@ import java.util.List;
 @RequestMapping(value="/category")
 public class CategoryResource {
 
-    @GetMapping()
-    public List<Category> list(){
-        Category cat1 = new Category();
-        cat1.setId(1);
-        cat1.setName("Informatica");
+    @Autowired
+    private CategoryService service;
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> list(@PathVariable Integer id){
+        Category category = service.find(id);
 
+        return ResponseEntity.ok().body(category);
 
-        Category cat2 = new Category();
-        cat2.setId(2);
-        cat2.setName("Escritorio");
+    }
 
-        List<Category> list = Arrays.asList(cat1,cat2);
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> create(@RequestBody Category body){
+        Category category = service.create(body);
 
-
-
-        return list;
+        return ResponseEntity.ok().body(category);
     }
 }
